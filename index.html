@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Rinu</title>
+
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: linear-gradient(180deg, #1a0c12, #050203);
+    color: #fff;
+    font-family: 'Georgia', serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .screen {
+    display: none;
+    max-width: 420px;
+    width: 100%;
+    padding: 26px;
+    text-align: center;
+    animation: fade 1.2s ease forwards;
+  }
+
+  .screen.active { display: block; }
+
+  h1 {
+    font-size: 34px;
+    color: #ffd6e8;
+    margin-bottom: 22px;
+  }
+
+  h2 {
+    font-size: 22px;
+    color: #ffb7d5;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.9;
+    opacity: 0.95;
+    margin-bottom: 28px;
+  }
+
+  button {
+    padding: 12px 34px;
+    border-radius: 40px;
+    border: 1px solid rgba(255, 214, 232, 0.4);
+    background: transparent;
+    color: #ffd6e8;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #ffd6e8;
+    color: #000;
+  }
+
+  .terminal {
+    background: rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding: 18px;
+    height: 320px;
+    overflow-y: auto;
+    text-align: left;
+    font-family: monospace;
+    font-size: 13px;
+    color: #ffd6e8;
+    line-height: 1.7;
+  }
+
+  .signature {
+    margin-top: 18px;
+    font-size: 13px;
+    opacity: 0.75;
+    text-align: center;
+  }
+
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 -->
+<div class="screen active" id="s1">
+  <h1>rinu…</h1>
+  <p>
+    this is something quiet.<br>
+    read it slowly.
+  </p>
+  <button onclick="go(2)">tap</button>
+</div>
+
+<!-- SCREEN 2 -->
+<div class="screen" id="s2">
+  <h2>Raniya Rafeeq</h2>
+  <p>
+    I don’t know when it started.<br>
+    I only know that somewhere along the way,<br>
+    my thoughts began to sound like your name.
+  </p>
+  <button onclick="go(3)">continue</button>
+</div>
+
+<!-- SCREEN 3 -->
+<div class="screen" id="s3">
+  <p>
+    I’ve never been great at saying this out loud.<br>
+    So I’m saying it here,<br>
+    in a way that feels honest to me.
+  </p>
+  <button onclick="go(4)">read</button>
+</div>
+
+<!-- SCREEN 4 -->
+<div class="screen" id="s4">
+  <div class="terminal" id="terminal"></div>
+  <div class="signature">
+    always,<br>
+    Safu
+  </div>
+</div>
+
+<script>
+function go(n) {
+  document.querySelectorAll('.screen')
+    .forEach(s => s.classList.remove('active'));
+  document.getElementById('s' + n)
+    .classList.add('active');
+
+  if (n === 4) startWriting();
+}
+
+/* ===== 1000+ ROMANTIC LINES ===== */
+
+const phrases = [
+  "I love you in ways I don’t know how to explain",
+  "I love the calm you bring into my thoughts",
+  "I love the sound of your name in my mind",
+  "I love how you feel familiar and new at the same time",
+  "I love you more quietly than words allow",
+  "I love the way you exist",
+  "I love how my days feel softer because of you",
+  "I love you without asking anything back",
+  "I love the idea of you smiling right now",
+  "I love how you stay in my thoughts longer than expected",
+  "I love you in small moments and long silences",
+  "I love you gently",
+  "I love you honestly",
+  "I love you without reasons",
+  "I love you just because it’s you"
+];
+
+const lines = [];
+let count = 1;
+
+while (lines.length < 1000) {
+  const phrase = phrases[Math.floor(Math.random() * phrases.length)];
+  lines.push(`// ${count}. ${phrase}, rinu`);
+  count++;
+}
+
+lines.push("//");
+lines.push("// I love you.");
+lines.push("//");
+lines.push("// — Safu");
+
+let index = 0;
+function startWriting() {
+  const terminal = document.getElementById("terminal");
+  const interval = setInterval(() => {
+    if (index < lines.length) {
+      terminal.innerHTML += lines[index] + "<br>";
+      terminal.scrollTop = terminal.scrollHeight;
+      index++;
+    } else {
+      clearInterval(interval);
+    }
+  }, 18);
+}
+</script>
+
+</body>
+</html>
