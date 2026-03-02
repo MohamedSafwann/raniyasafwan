@@ -10,7 +10,7 @@
 
   body {
     margin: 0;
-    background: linear-gradient(180deg, #1a0c12, #050203);
+    background: linear-gradient(180deg, #1b0d13, #060203);
     color: #fff;
     font-family: 'Georgia', serif;
     height: 100vh;
@@ -22,17 +22,17 @@
 
   .screen {
     display: none;
-    max-width: 420px;
+    max-width: 440px;
     width: 100%;
-    padding: 26px;
+    padding: 28px;
     text-align: center;
-    animation: fade 1.2s ease forwards;
+    animation: fade 1.4s ease forwards;
   }
 
   .screen.active { display: block; }
 
   h1 {
-    font-size: 34px;
+    font-size: 36px;
     color: #ffd6e8;
     margin-bottom: 22px;
   }
@@ -46,14 +46,14 @@
   p {
     font-size: 16px;
     line-height: 1.9;
-    opacity: 0.95;
-    margin-bottom: 28px;
+    opacity: 0.96;
+    margin-bottom: 30px;
   }
 
   button {
-    padding: 12px 34px;
+    padding: 12px 36px;
     border-radius: 40px;
-    border: 1px solid rgba(255, 214, 232, 0.4);
+    border: 1px solid rgba(255, 214, 232, 0.45);
     background: transparent;
     color: #ffd6e8;
     font-size: 14px;
@@ -67,26 +67,26 @@
 
   .terminal {
     background: rgba(255,255,255,0.06);
-    border-radius: 14px;
-    padding: 18px;
-    height: 320px;
+    border-radius: 16px;
+    padding: 20px;
+    height: 340px;
     overflow-y: auto;
     text-align: left;
     font-family: monospace;
     font-size: 13px;
     color: #ffd6e8;
-    line-height: 1.7;
+    line-height: 1.75;
   }
 
   .signature {
-    margin-top: 18px;
-    font-size: 13px;
-    opacity: 0.75;
+    margin-top: 22px;
+    font-size: 14px;
+    opacity: 0.8;
     text-align: center;
   }
 
   @keyframes fade {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(14px); }
     to { opacity: 1; transform: translateY(0); }
   }
 </style>
@@ -99,7 +99,7 @@
   <h1>rinu…</h1>
   <p>
     this is something quiet.<br>
-    read it slowly.
+    please read it slowly.
   </p>
   <button onclick="go(2)">tap</button>
 </div>
@@ -108,9 +108,10 @@
 <div class="screen" id="s2">
   <h2>Raniya Rafeeq</h2>
   <p>
-    I don’t know when it started.<br>
-    I only know that somewhere along the way,<br>
-    my thoughts began to sound like your name.
+    I don’t know exactly when it started.<br>
+    I just know that one day,<br>
+    my thoughts began returning to you<br>
+    without any reason.
   </p>
   <button onclick="go(3)">continue</button>
 </div>
@@ -118,9 +119,10 @@
 <!-- SCREEN 3 -->
 <div class="screen" id="s3">
   <p>
-    I’ve never been great at saying this out loud.<br>
-    So I’m saying it here,<br>
-    in a way that feels honest to me.
+    I am not good at calligraphy.<br>
+    But I am an engineer.<br><br>
+    So when I feel something deeply,<br>
+    this is how it comes out.
   </p>
   <button onclick="go(4)">read</button>
 </div>
@@ -144,24 +146,24 @@ function go(n) {
   if (n === 4) startWriting();
 }
 
-/* ===== 1000+ ROMANTIC LINES ===== */
+/* ===== 1000+ LOVE LINES ===== */
 
 const phrases = [
-  "I love you in ways I don’t know how to explain",
+  "I love you in quiet ways",
+  "I love how your name feels in my heart",
+  "I love you more softly than words can say",
   "I love the calm you bring into my thoughts",
-  "I love the sound of your name in my mind",
-  "I love how you feel familiar and new at the same time",
-  "I love you more quietly than words allow",
-  "I love the way you exist",
-  "I love how my days feel softer because of you",
-  "I love you without asking anything back",
-  "I love the idea of you smiling right now",
-  "I love how you stay in my thoughts longer than expected",
-  "I love you in small moments and long silences",
+  "I love you without needing reasons",
+  "I love how you stay with me",
+  "I love the idea of you smiling",
+  "I love you in small moments",
+  "I love you even in silence",
   "I love you gently",
   "I love you honestly",
-  "I love you without reasons",
-  "I love you just because it’s you"
+  "I love you because it’s you",
+  "I love you in ways I don’t understand",
+  "I love you more than yesterday",
+  "I love you in my own quiet way"
 ];
 
 const lines = [];
@@ -173,6 +175,7 @@ while (lines.length < 1000) {
   count++;
 }
 
+/* ENDING */
 lines.push("//");
 lines.push("// I love you.");
 lines.push("//");
@@ -189,7 +192,7 @@ function startWriting() {
     } else {
       clearInterval(interval);
     }
-  }, 18);
+  }, 100); // SLOWER SPEED
 }
 </script>
 
